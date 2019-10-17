@@ -2,7 +2,7 @@
 
 set -e
 
-: ${GCLOUD_REGISTRY:=gcr.io}
+: ${GCLOUD_REGISTRY:=docker.pkg.github.com}
 : ${IMAGE:=$(echo $GITHUB_REPOSITORY | sed -e 's/[\/]/-/g' | awk '{print tolower($0)}')}
 : ${GCP_PROJECT:=''}
 : ${TAG:=$GITHUB_SHA}
