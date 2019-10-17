@@ -3,7 +3,8 @@
 set -e
 
 : ${GCLOUD_REGISTRY:=gcr.io}
-: ${IMAGE:=$GITHUB_REPOSITORY}
+: ${IMAGE:=$(echo $GITHUB_REPOSITORY | sed -e 's/[\/]/-/\L\1/g' | awk '{print tolower($0)}')}
+: ${GCP_PROJECT:=''}
 : ${TAG:=$GITHUB_SHA}
 : ${DEFAULT_BRANCH_TAG:=true}
 
@@ -16,4 +17,4 @@ else
   echo "GCLOUD_SERVICE_ACCOUNT_KEY was empty, not performing auth" 1>&2
 fi
 
-docker push $GCLOUD_REGISTRY/$IMAGE
+docker push $GCLOUD_REGISTRY/$GCP_PROJECT/$IMAGE
