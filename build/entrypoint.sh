@@ -3,7 +3,7 @@
 set -e
 
 : ${GCLOUD_REGISTRY:=gcr.io}
-: ${IMAGE:=$GITHUB_REPOSITORY}
+: ${IMAGE:=$(echo $GITHUB_REPOSITORY | sed -e 's/[\/]/-/g')}
 : ${TAG:=$GITHUB_SHA}
 : ${DEFAULT_BRANCH_TAG:=true}
 
