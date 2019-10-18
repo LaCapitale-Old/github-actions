@@ -15,4 +15,5 @@ else
   echo "GITHUB_ACCESS_TOKEN was empty, not performing auth" 1>&2
 fi
 
-docker push $GCLOUD_REGISTRY/$REPO/$IMAGE
+docker push $GCLOUD_REGISTRY/$REPO/$IMAGE:$TAG
+docker push $GCLOUD_REGISTRY/$REPO/$IMAGE:latest
