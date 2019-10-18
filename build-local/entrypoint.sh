@@ -16,7 +16,7 @@ else
   echo "GITHUB_ACCESS_TOKEN was empty, not performing pull" 1>&2
 fi
 
-docker build -t $IMAGE:$TAG . -t $IMAGE:latest
+docker build -t $IMAGE:$TAG -t $IMAGE:latest .
 docker tag $IMAGE:$TAG $GCLOUD_REGISTRY/$REPO/$IMAGE:$TAG
 if [ "$DEFAULT_BRANCH_TAG" = "true" ]; then
   BRANCH=$(echo $GITHUB_REF | rev | cut -f 1 -d / | rev)
