@@ -8,6 +8,7 @@ set -e
 : ${DEFAULT_BRANCH_TAG:=true}
 : ${REPO:=$(echo $GITHUB_REPOSITORY | awk '{print tolower($0)}')}
 
+docker pull $GCLOUD_REGISTRY/$REPO/$IMAGE:latest
 docker build -t $IMAGE:$TAG .
 docker tag $IMAGE:$TAG $GCLOUD_REGISTRY/$REPO/$IMAGE:$TAG
 if [ "$DEFAULT_BRANCH_TAG" = "true" ]; then
