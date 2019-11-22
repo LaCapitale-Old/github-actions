@@ -8,7 +8,7 @@ set -e
 : ${DEFAULT_BRANCH_TAG:=true}
 : ${REPO:=$(echo $GITHUB_REPOSITORY | awk '{print tolower($0)}')}
 
-if [ -n "${GITHUB_ACCESS_TOKEN}" && -n "${GITHUB_USERNAME}" ]; then
+if [ -n "${GITHUB_ACCESS_TOKEN}" ] && [ -n "${GITHUB_USERNAME}" ]; then
   echo "Logging into docker.pkg.github.com with GITHUB_ACCESS_TOKEN..."
   docker login docker.pkg.github.com -u ${GITHUB_USERNAME} -p ${GITHUB_ACCESS_TOKEN}
 else
