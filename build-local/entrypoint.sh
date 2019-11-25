@@ -10,7 +10,7 @@ set -e
 
 if [ -n "${GITHUB_ACCESS_TOKEN}" && -n "${GITHUB_USERNAME}" ]; then
   echo "Logging into docker.pkg.github.com with GITHUB_ACCESS_TOKEN..."
-  docker login docker.pkg.github.com -u po.berube -p ${GITHUB_ACCESS_TOKEN} 
+  docker login docker.pkg.github.com -u ${GITHUB_USERNAME} -p ${GITHUB_ACCESS_TOKEN} 
   docker pull $GCLOUD_REGISTRY/$REPO/$IMAGE:latest || echo "image 'latest' not found, skip..."
 else
   echo "GITHUB_ACCESS_TOKEN was empty, not performing pull" 1>&2
