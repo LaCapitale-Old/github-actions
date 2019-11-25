@@ -12,7 +12,6 @@ if [ "${GITHUB_ACCESS_TOKEN}" -a "${GITHUB_USERNAME}" ]; then
   echo "Logging into docker.pkg.github.com with GITHUB_ACCESS_TOKEN..."
   echo ${GCLOUD_SERVICE_ACCOUNT_KEY} | base64 --decode --ignore-garbage > /tmp/key.json
   docker login docker.pkg.github.com -u ${GITHUB_USERNAME} -p /tmp/key.json”
-  docker pull $GCLOUD_REGISTRY/$REPO/$IMAGE:latest || echo "image 'latest' not found, skip..."
 else
   echo "GITHUB_ACCESS_TOKEN was empty, not performing pull" 1>&2
 fi
