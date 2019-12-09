@@ -1,5 +1,5 @@
   
 FROM google/cloud-sdk:232.0.0
 
-ADD entrypoint.sh /entrypoint.sh
+ADD . .
 ENTRYPOINT ["/bin/bash", "/entrypoint.sh"]
