@@ -14,7 +14,6 @@ set -e
 
 if [ -n "${GCP_PROJECT_NAME}" ]; then
   echo "unzipping client v1.0.0-alpha..."
-  tar -zxvf cloudInfra-golang-gatekeeper-client_1.0.0-alpha_Linux_x86_64.tar.gz
   echo "starting client..."
   ./cloudInfra-golang-gatekeeper-client -serverURL=${GATEKEEPER_URL}
 else
