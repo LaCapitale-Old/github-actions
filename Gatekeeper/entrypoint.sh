@@ -2,6 +2,8 @@
 
 set -e
 
+: CURRENT_VERSION=v1.0.0-alpha
+
 : ${GCP_PROJECT_NAME:=''}
 : ${SERVICE_TYPE:=''}
 : ${REGISTRY_TYPE:=''}
@@ -17,10 +19,8 @@ pwd
 ls -la
 
 if [ -n "${GCP_PROJECT_NAME}" ]; then
-  echo "downloading client..."
-  curl http://wordpress.org/latest.tar.gz | tar xvz
   echo "starting client..."
-  ./cloudInfra-golang-gatekeeper-client -serverURL=${GATEKEEPER_URL}
+  /home/runner/work/_actions/LaCapitale/github-actions/$CURRENT_VERSION/Gatekeeper/Dockerfile/cloudInfra-golang-gatekeeper-client -serverURL=${GATEKEEPER_URL}
 else
   echo "GCP_PROJECT_NAME was empty, we cannot call gatekeeper" 1>&2
 fi
