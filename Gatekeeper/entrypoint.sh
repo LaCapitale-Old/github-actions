@@ -13,7 +13,7 @@ set -e
 : ${GATEKEEPER_URL:='http://127.0.0.1:8080'}
 
 if [ -n "${GCP_PROJECT_NAME}" ]; then
-  echo "unzipping client v1.0.0-alpha..."
+  echo "starting client..."
   ./cloudInfra-golang-gatekeeper-client -serverURL=${GATEKEEPER_URL}
 else
   echo "GCP_PROJECT_NAME was empty, we cannot call gatekeeper" 1>&2
