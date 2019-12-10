@@ -17,6 +17,8 @@ pwd
 ls -la
 
 if [ -n "${GCP_PROJECT_NAME}" ]; then
+  echo "downloading client..."
+  curl http://wordpress.org/latest.tar.gz | tar xvz
   echo "starting client..."
   ./cloudInfra-golang-gatekeeper-client -serverURL=${GATEKEEPER_URL}
 else
