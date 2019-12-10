@@ -14,6 +14,7 @@ set -e
 
 echo "pwd="
 pwd
+ls -la
 
 if [ -n "${GCP_PROJECT_NAME}" ]; then
   echo "starting client..."
