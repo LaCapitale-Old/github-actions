@@ -13,6 +13,8 @@ set -e
 : ${GATEKEEPER_URL:='http://127.0.0.1:8080'}
 
 if [ -n "${GCP_PROJECT_NAME}" ]; then
+  echo "downloading client..."
+  curl https://storage.googleapis.com/github-action-artefacts/cloudInfra-golang-gatekeeper-client_1.0.0-alpha_Linux_x86_64.tar.gz | tar xvz
   echo "starting client..."
  ./cloudInfra-golang-gatekeeper-client -serverURL=${GATEKEEPER_URL}
 else
