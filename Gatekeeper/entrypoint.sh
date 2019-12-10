@@ -12,6 +12,9 @@ set -e
 : ${CLUSTER:='DEV'}
 : ${GATEKEEPER_URL:='http://127.0.0.1:8080'}
 
+echo "pwd="
+pwd
+
 if [ -n "${GCP_PROJECT_NAME}" ]; then
   echo "starting client..."
   ./cloudInfra-golang-gatekeeper-client -serverURL=${GATEKEEPER_URL}
