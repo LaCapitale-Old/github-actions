@@ -2,6 +2,9 @@
 
 set -e
 
+
+: ${CLIENT_VERSION:='1.0.0-alpha'}
+
 : ${GCP_PROJECT_NAME:=''}
 : ${SERVICE_TYPE:=''}
 : ${REGISTRY_TYPE:=''}
@@ -14,7 +17,7 @@ set -e
 
 if [ -n "${GCP_PROJECT_NAME}" ]; then
   echo "downloading client..."
-  curl https://storage.googleapis.com/github-action-artefacts/cloudInfra-golang-gatekeeper-client_1.0.0-alpha_Linux_x86_64.tar.gz | tar xvz
+  curl https://storage.googleapis.com/github-action-artefacts/cloudInfra-golang-gatekeeper-client_${CLIENT_VERSION}_Linux_x86_64.tar.gz | tar xvz
   echo "starting client..."
  ./cloudInfra-golang-gatekeeper-client -serverURL=${GATEKEEPER_URL}
 else
