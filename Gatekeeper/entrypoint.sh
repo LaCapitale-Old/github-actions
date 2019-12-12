@@ -17,7 +17,7 @@ set -e
 
 if [ -n "${GCP_PROJECT_NAME}" ]; then
   echo "downloading client..."
-  curl https://storage.googleapis.com/github-action-artefacts/cloudInfra-golang-gatekeeper-client_${CLIENT_VERSION}_Linux_x86_64.tar.gz | tar xvz
+  curl https://storage.googleapis.com/github-action-artefacts/${CLIENT_VERSION}/cloudInfra-golang-gatekeeper-client_${CLIENT_VERSION}_Linux_x86_64.tar.gz | tar xvz
   echo "starting client..."
  ./cloudInfra-golang-gatekeeper-client -serverURL=${GATEKEEPER_URL}
 else
