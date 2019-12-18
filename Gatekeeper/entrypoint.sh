@@ -13,7 +13,7 @@ set -e
 : ${RUN_DIR:=''}
 : ${ARGS:=''}
 : ${CLUSTER:='DEV'}
-: ${GATEKEEPER_URL:='http://127.0.0.1:8080'}
+: ${GATEKEEPER_URL:='https://gatekeeper.infra1.lacapitale-gcp.com'}
 : ${GATEKEEPER_API_KEY:=''}
 
 if [ -n "${GCP_PROJECT_NAME}" ]; then
