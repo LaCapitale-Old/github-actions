@@ -3,7 +3,7 @@
 set -e
 
 
-: ${CLIENT_VERSION:='1.0.0-alpha'}
+: ${CLIENT_VERSION:='1.0.1-alpha'}
 
 : ${GCP_PROJECT_NAME:=''}
 : ${SERVICE_TYPE:=''}
