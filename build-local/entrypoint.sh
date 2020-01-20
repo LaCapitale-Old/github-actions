@@ -15,12 +15,12 @@ else
   echo "GITHUB_ACCESS_TOKEN was empty, not performing pull" 1>&2
 fi
 
-docker build -t $IMAGE:$TAG .
+if [-n "PROJECT_DIR"]; then 
+  docker build -t $IMAGE:$TAG --workdir=${PROJECT_DIR} .
+else 
+  docker build -t $IMAGE:$TAG .
+fi
+
 docker tag $IMAGE:$TAG $GCLOUD_REGISTRY/$REPO/$IMAGE:$TAG
 docker tag $IMAGE:$TAG $GCLOUD_REGISTRY/$REPO/$IMAGE:latest
-if [ "$DEFAULT_BRANCH_TAG" = "true" ]; then
-  BRANCH=$(echo $GITHUB_REF | rev | cut -f 1 -d / | rev)
-  if [ "$BRANCH" = "master" ]; then # TODO
-    docker tag $IMAGE:$TAG $GCLOUD_REGISTRY/$REPO/$IMAGE:$BRANCH
-  fi
-fi
+
