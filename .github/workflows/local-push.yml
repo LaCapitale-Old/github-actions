@@ -7,7 +7,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - working-directory: Gatekeeper
+      
+      - name: Set project dir environment var
+        run: echo ::set-env name=PROJECT_DIR::"$GITHUB_WORKSPACE/Gatekeeper"
+
       - uses: actions/checkout@master
 
       - name: Set-up dynamic env var
