@@ -1,0 +1,32 @@
+name: Docker-local
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      
+      - name: Set project dir environment var
+        run: echo ::set-env name=PROJECT_DIR::"$GITHUB_WORKSPACE/Gatekeeper"
+
+      - uses: actions/checkout@master
+
+      - name: Set-up dynamic env var
+        run: |
+          echo ::set-env name=REPO::$(echo $GITHUB_REPOSITORY | awk '{print tolower($0)}')
+          echo ::set-env name=SHA::$(echo $GITHUB_SHA)
+          
+      - name: Docker Build
+        uses: LaCapitale/github-actions/build-local@v1.0.0-alpha
+        env:
+          GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_ACCESS_TOKEN }}
+          GITHUB_USERNAME: ${{ secrets.GITHUB_USER }}
+          TAG: ${{env.SHA}}
+
+      - name: Docker Push
+        uses: LaCapitale/github-actions/push-local@v1.0.0-alpha
+        env:
+          GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_ACCESS_TOKEN }}
+          GITHUB_USERNAME: ${{ secrets.GITHUB_USER }}
