@@ -15,11 +15,11 @@ else
   echo "GITHUB_ACCESS_TOKEN was empty, not performing pull" 1>&2
 fi
 
-if [-n "PROJECT_DIR"]; then 
-  docker build -t $IMAGE:$TAG --workdir=${PROJECT_DIR} .
+if [-n "${PROJECT_DIR}"]; then 
+  docker build -t ${IMAGE}:$TAG} --workdir=${PROJECT_DIR} .
 else 
-  docker build -t $IMAGE:$TAG .
+  docker build -t ${IMAGE}:${TAG} .
 fi
 
-docker tag $IMAGE:$TAG $DOCKER_REGISTRY/$REPO/$IMAGE:$TAG
-docker tag $IMAGE:$TAG $DOCKER_REGISTRY/$REPO/$IMAGE:latest
+docker tag $IMAGE}:${TAG} ${DOCKER_REGISTRY}/${REPO}/${IMAGE}:${TAG}
+docker tag ${IMAGE}:${TAG} ${DOCKER_REGISTRY}/${REP}/${IMAGE}:latest
