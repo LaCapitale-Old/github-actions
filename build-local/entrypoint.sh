@@ -22,4 +22,4 @@ else
 fi
 
 docker tag ${IMAGE}:${TAG} ${DOCKER_REGISTRY}/${REPO}/${IMAGE}:${TAG}
-docker tag ${IMAGE}:${TAG} ${DOCKER_REGISTRY}/${REP}/${IMAGE}:latest
+docker tag ${IMAGE}:${TAG} ${DOCKER_REGISTRY}/${REPO}/${IMAGE}:latest
