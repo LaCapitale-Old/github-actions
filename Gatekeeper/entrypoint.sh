@@ -14,7 +14,7 @@ set -e
 : ${ARGS:=''}
 : ${CLUSTER:='DEV'}
 : ${GATEKEEPER_URL:='gatekeeper.infra1.lacapitale-gcp.com'}
-: ${GATEKEEPER_HTTP_PORT:='443'}
+: ${GATEKEEPER_HTTP_PORT:=''}
 : ${GATEKEEPER_RPC_PORT:='50051'}
 : ${GATEKEEPER_API_KEY:=''}
 
