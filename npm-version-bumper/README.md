@@ -24,7 +24,7 @@ jobs:
 
       - name: NPM version bumper
         id: npm_version_bumper
-        uses: rlejeune/npm-version-bumper@master
+        uses: LaCapitale/github-actions/npm-version-bumper@master
 
       - name: Open a Pull Request with new version
         uses: peter-evans/create-pull-request@v2
