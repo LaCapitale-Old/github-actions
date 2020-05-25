@@ -55,7 +55,7 @@ fi
 
 incrementVersion $tag
 
-packageJsonPath=${PACKAGE_JSON_PATH:-''}
+packageJsonPath=${PACKAGE_JSON_PATH:-'./'}
 
 # get the npm version
 npmversion=$(cat ${packageJsonPath}package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[",]//g' | tr -d '[[:space:]]')
@@ -63,6 +63,7 @@ npmversion=$(cat ${packageJsonPath}package.json | grep version | head -1 | awk -
 if [ $tag != $npmversion ];
 then
   # update npm version
+  cd ${PACKAGE_JSON_PATH}
   tag=$(npm version ${tag} --no-git-tag-version)
   echo "::set-output name=new_npm_version::$tag"
 else
