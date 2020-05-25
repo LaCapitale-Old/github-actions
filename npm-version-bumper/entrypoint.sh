@@ -58,7 +58,7 @@ incrementVersion $tag
 packageJsonPath=${PACKAGE_JSON_PATH:-''}
 
 # get the npm version
-npmversion=$(${packageJsonPath}cat package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[",]//g' | tr -d '[[:space:]]')
+npmversion=$(cat ${packageJsonPath}package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[",]//g' | tr -d '[[:space:]]')
 
 if [ $tag != $npmversion ];
 then
