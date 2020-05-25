@@ -43,6 +43,7 @@ jobs:
 **Environment Variables**
 
 - **DESIRED_BUMP** (optional) - Which type of bump to use, minor will be used by default if none are provided.
+- **PACKAGE_JSON_PATH** (optional) - If you want to specify a different path for the package.json file. Syntax is : ./your-path/
 
 **Outputs**
 
